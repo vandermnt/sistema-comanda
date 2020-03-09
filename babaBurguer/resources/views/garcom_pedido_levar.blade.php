@@ -1,0 +1,31 @@
+@extends('garcom_principal')
+
+@section('conteudo')
+
+<div class="container">
+<div class="row">
+  <div class="col-sm-12"style="margin-top: 5px">
+    <a href="{{ action('PedidoController@novoPedido') }}"> <button type="button" class="btn btn-success btn-lg btn-block"><b> NOVO PEDIDO </b></button> </a>
+  </div>
+    <!-- @foreach ($mesas as $mesas)
+    @if($mesas->status == false)
+      <div class="col-sm-2"style="margin-top: 5px;">
+        <a href="{{ action('PedidoController@escolherMesa', ['id_mesa' => $mesas->id])}}"> <button type="button" class="btn btn-success btn-lg btn-block"><b> {{ $mesas->id }} </b></button> </a>
+      </div>
+      @else
+        <div class="col-sm-2"style="margin-top: 5px">
+          <a href="{{ action('PedidoController@escolherMesa', ['id_mesa' => $mesas->id])}}"> <button type="button" class="btn btn-danger btn-lg btn-block"><b> {{ $mesas->id }} </b></button> </a>
+        </div>
+    @endif
+
+  @endforeach -->
+</div> <hr>
+<h5 align="center"> <b>PEDIDOS PARA LEVAR EM ABERTO</b> </h5>
+
+@foreach($pedidos_levar as $pedidos_levar)
+  <div class="col-sm-12"style="margin-top: 5px;">
+    <a href="{{ action('PedidoController@escolherNomeLevar', ['id_cliente' => $pedidos_levar->id])}}"> <button type="button" class="btn btn-warning btn-lg btn-block"><b> {{ $pedidos_levar->nome }} </b></button> </a>
+  </div>
+@endforeach
+</div>
+@stop
